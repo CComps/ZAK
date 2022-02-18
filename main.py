@@ -71,7 +71,7 @@ def takeCommand():
 
     try:
         print("Recognizing...")
-        query = r.recognize_google(audio, language='en-in')  # sk-SK or en-in
+        query = r.recognize_google(audio, language='en-in')  # en-in
         print(f"User said: {query}\n")  # User query will be printed.
 
     except Exception as e:
@@ -85,8 +85,8 @@ def sendEmail(to, content):
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.ehlo()
     server.starttls()
-    server.login('tt.tomicraft@gmail.com', 'w3cbAlvAn.')
-    server.sendmail('tt.tomicraft@gmail.com', to, content)
+    server.login('yourgmail@gmail.com', 'password')
+    server.sendmail('yourgmailt@gmail.com', to, content)
     server.close()
 
 
@@ -126,33 +126,11 @@ if __name__ == "__main__":
         elif "the date" in query.lower():
             speak()
             date()
-        elif 'email to cousin' in query.lower():
+        elif 'email to somewone' in query.lower():
             try:
                 speak()
                 content = takeCommand()
                 to = "zemiak52@gmail.com"
-                sendEmail(to, content)
-                speak()
-            except Exception as e:
-                # print(e)
-                print("Sorry my friend. I am not able to send this email.")
-                speak()
-        elif 'email to dad' in query.lower():
-            try:
-                speak()
-                content = takeCommand()
-                to = "vladky@gmail.com"
-                sendEmail(to, content)
-                speak()
-            except Exception as e:
-                # print(e)
-                print("Sorry my friend. I am not able to send this email.")
-                speak()
-        elif 'email to mom' in query.lower():
-            try:
-                speak()
-                content = takeCommand()
-                to = "tarabova@gmail.com"
                 sendEmail(to, content)
                 speak()
             except Exception as e:
