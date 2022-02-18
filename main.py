@@ -6,62 +6,60 @@ import webbrowser
 import os
 import smtplib
 
-print("Initializing ZAK...")
-
-
 listener = sr.Recognizer()
 engine = pyttsx3.init("sapi5")
 voices = engine.getProperty("voices")
 
 
-def speak(text):
-    engine.say(text)
+def speak(audio):
+    engine.say(audio)
     engine.runAndWait()
 # speak("Hallo Tom. I am your virtual assistant")
 
 
-speak("initializing ZAK")
+print("Initializing ZAK...")
+speak()
 
 
 def time():
     Time = datetime.datetime.now().strftime("%I:%M:%S")
-    speak(Time)
+    speak()
 
 # time()
 
 
 def date():
-    speak("The corrent date is: ")
+    speak()
     date = int(datetime.datetime.now().year)
     date2 = int(datetime.datetime.now().month)
     date3 = int(datetime.datetime.now().day)
-    speak("Year: ")
-    speak(date)
-    speak("Month: ")
-    speak(date2)
-    speak("Day: ")
-    speak(date3)
+    speak()
+    speak()
+    speak()
+    speak()
+    speak()
+    speak()
 
 # date()
 
 
 def wishMe():
     print("Initializing is Done!")
-    speak("Initializing is Done!")
-    speak("Welcome back sir!")
+    speak()
+    speak()
     print("Welcome back sir!")
-    speak("the corrent time is: ")
+    speak()
     time()
     hour = datetime.datetime.now().hour
     if hour >= 6 and hour < 12:
-        speak("Good Morning sir!")
+        speak()
     elif hour >= 12 and hour < 18:
-        speak("Good afternoon sir!")
+        speak()
     elif hour >= 18 and hour < 24:
-        speak("Good Evening sir!")
+        speak()
     else:
-        speak("Good night sir!")
-    speak("How can I help you with?")
+        speak()
+    speak()
     print("How can I help you with?")
 
 
@@ -104,60 +102,60 @@ if __name__ == "__main__":
         # Logic for executing tasks based on query
         if 'wikipedia' in query:
             print('Searching Wikipedia...')
-            speak('Searching Wikipedia...')
+            speak()
             query = query.replace("wikipedia", "")
             results = wikipedia.summary(query, sentences=2)
-            speak("According to Wikipedia")
+            speak()
             print(results)
-            speak(results)
+            speak()
         elif "open youtube" in query.lower():
-            webbrowser.get("https://youtube.com")
+            webbrowser.open("https://youtube.com")
             print("OK. I opened YouTube")
-            speak("OK. I opened YouTube")
+            speak()
         elif "open google" in query.lower():
             webbrowser.open("http://www.google.com")
             print("OK. I opened Google")
-            speak("OK. I opened Google")
+            speak()
         elif "open google" in query.lower():
             webbrowser.open("https://zsbahon.edupage.org/user/?c2fa=1")
             print("OK. I opened Edupage")
-            speak("OK. I opened Edupage")
+            speak()
         elif "the time" in query.lower():
-            speak("Now is: ")
+            speak()
             time()
         elif "the date" in query.lower():
-            speak("Now is date: ")
+            speak()
             date()
         elif 'email to cousin' in query.lower():
             try:
-                speak("What should I say?")
+                speak()
                 content = takeCommand()
                 to = "zemiak52@gmail.com"
                 sendEmail(to, content)
-                speak("Email has been sent!")
+                speak()
             except Exception as e:
                 # print(e)
                 print("Sorry my friend. I am not able to send this email.")
-                speak("Sorry my friend. I am not able to send this email.")
+                speak()
         elif 'email to dad' in query.lower():
             try:
-                speak("What should I say?")
+                speak()
                 content = takeCommand()
                 to = "vladky@gmail.com"
                 sendEmail(to, content)
-                speak("Email has been sent!")
+                speak()
             except Exception as e:
                 # print(e)
                 print("Sorry my friend. I am not able to send this email.")
-                speak("Sorry my friend. I am not able to send this email.")
+                speak()
         elif 'email to mom' in query.lower():
             try:
-                speak("What should I say?")
+                speak()
                 content = takeCommand()
                 to = "tarabova@gmail.com"
                 sendEmail(to, content)
-                speak("Email has been sent!")
+                speak()
             except Exception as e:
                 # print(e)
                 print("Sorry my friend. I am not able to send this email.")
-                speak("Sorry my friend. I am not able to send this email.")
+                speak()
